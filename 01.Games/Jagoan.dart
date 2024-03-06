@@ -6,7 +6,7 @@ class Jagoan {
   late int kesehatanDasar;
   late int kekuatanDasar;
   late int derajat;
-  late int totalKerusakan;
+  int totalKerusakan = 0;
   late int kenaikanKesehatan;
   late int kenaikanKekuatan;
   late bool hidup;
