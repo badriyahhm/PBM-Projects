@@ -3,13 +3,13 @@ import 'Senjata.dart';
 
 class Jagoan {
   String nama;
-  int? kesehatanDasar;
-  int? kekuatanDasar;
-  int? derajat;
-  int? totaKerusakan;
-  int? kenaikanKesehatan;
-  int? kenaikanKekuatan;
-  bool? hidup;
+  late int kesehatanDasar;
+  late int kekuatanDasar;
+  late int derajat;
+  late int totalKerusakan;
+  late int kenaikanKesehatan;
+  late int kenaikanKekuatan;
+  late bool hidup;
 
   Jubah? jubah;
   Senjata? senjata;
@@ -37,13 +37,13 @@ class Jagoan {
 
   int sehatMaksimal() {
     return this.kesehatanDasar +
-        (this.jubah != null ? this.jubah!.getTambahKesehatan() : 0) +
+        (this.jubah?.getTambahKesehatan() ?? 0) +
         this.derajat * this.kenaikanKesehatan;
   }
 
   int getKekuatanSerangJagoan() {
     return this.kekuatanDasar +
-        (this.senjata != null ? this.senjata!.getKekuatanSerang() : 0) +
+        (this.senjata?.getKekuatanSerang() ?? 0) +
         this.derajat * this.kenaikanKekuatan;
   }
 
