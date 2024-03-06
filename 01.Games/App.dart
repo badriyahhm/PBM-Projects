@@ -2,7 +2,9 @@ import 'Jubah.dart';
 import 'Jagoan.dart';
 import 'Senjata.dart';
 
-void main() {
+class App {}
+
+void main(List<String> args) {
   Jagoan pitung = Jagoan("Pitung");
   Jubah jubahSilatPutih = Jubah("Jubah Silat Putih", 7, 50);
   Senjata golok = Senjata("Golok", 20);
@@ -33,7 +35,7 @@ void main() {
   print('${pitung.getNama()}: ${pitung.getNilaiKesehatan()}');
   print('${jakaSembung.getNama()}: ${jakaSembung.getNilaiKesehatan()}');
 
-  if (pitung.getStatus() && !jakaSembung.getStatus()) {
+  if (pitung.getStatus() && jakaSembung.getStatus()) {
     print('${pitung.getNama()} menang cuy!');
   } else if (!pitung.getStatus() && jakaSembung.getStatus()) {
     print('${jakaSembung.getNama()} menang cuy!');
