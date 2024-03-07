@@ -2,25 +2,25 @@ import 'Jubah.dart';
 import 'Senjata.dart';
 
 class Jagoan {
-  String nama;
-  late int kesehatanDasar;
-  late int kekuatanDasar;
-  late int derajat;
-  int totalKerusakan = 0;
-  late int kenaikanKesehatan;
-  late int kenaikanKekuatan;
-  late bool hidup;
+  late String _nama;
+  late int _kesehatanDasar;
+  late int _kekuatanDasar;
+  late int _derajat;
+  int _totalKerusakan = 0;
+  late int _kenaikanKesehatan;
+  late int _kenaikanKekuatan;
+  late bool _hidup;
 
   Jubah? jubah;
   Senjata? senjata;
 
-  Jagoan(this.nama) {
-    this.kesehatanDasar = 100;
-    this.kekuatanDasar = 100;
-    this.derajat = 1;
-    this.kenaikanKekuatan = 10;
-    this.kenaikanKesehatan = 10;
-    this.hidup = true;
+  Jagoan(this._nama) {
+    this._kesehatanDasar = 100;
+    this._kekuatanDasar = 100;
+    this._derajat = 1;
+    this._kenaikanKekuatan = 10;
+    this._kenaikanKesehatan = 10;
+    this._hidup = true;
   }
 
   void setJubah(Jubah jubah) {
@@ -32,37 +32,37 @@ class Jagoan {
   }
 
   String getNama() {
-    return this.nama;
+    return this._nama;
   }
 
   int sehatMaksimal() {
-    return this.kesehatanDasar +
+    return this._kesehatanDasar +
         (this.jubah?.getTambahKesehatan() ?? 0) +
-        this.derajat * this.kenaikanKesehatan;
+        this._derajat * this._kenaikanKesehatan;
   }
 
   int getKekuatanSerangJagoan() {
-    return this.kekuatanDasar +
+    return this._kekuatanDasar +
         (this.senjata?.getKekuatanSerang() ?? 0) +
-        this.derajat * this.kenaikanKekuatan;
+        this._derajat * this._kenaikanKekuatan;
   }
 
   int getNilaiKesehatan() {
-    return this.sehatMaksimal() - this.totalKerusakan;
+    return this.sehatMaksimal() - this._totalKerusakan;
   }
 
   void naikDerajat() {
-    this.derajat++;
+    this._derajat++;
   }
 
   bool getStatus() {
-    return this.hidup;
+    return this._hidup;
   }
 
   void menyerang(Jagoan lawan) {
     int kerusakan = this.getKekuatanSerangJagoan();
 
-    print('${this.nama} menyerang ${lawan.nama} dengan kekuatan $kerusakan');
+    print('${this._nama} menyerang ${lawan._nama} dengan kekuatan $kerusakan');
 
     lawan.bertahan(kerusakan);
 
@@ -70,11 +70,10 @@ class Jagoan {
   }
 
   void bertahan(int kerusakan) {
-    int kekuatanBertahan =
-        this.jubah != null ? this.jubah!.getNilaiKekuatan() : 0;
+    int kekuatanBertahan = (this.jubah?.getNilaiKekuatan() ?? 0);
     int selisihKerusakan;
 
-    print('${this.nama} memiliki kekuatan bertahan: $kekuatanBertahan');
+    print('${this._nama} memiliki kekuatan bertahan: $kekuatanBertahan');
 
     if (kerusakan > kekuatanBertahan) {
       selisihKerusakan = kerusakan - kekuatanBertahan;
@@ -84,24 +83,24 @@ class Jagoan {
 
     print('Kerusakan yang diperoleh $selisihKerusakan\n');
 
-    this.totalKerusakan += selisihKerusakan;
+    this._totalKerusakan += selisihKerusakan;
 
     if (this.getNilaiKesehatan() <= 0) {
-      this.hidup = false;
-      this.totalKerusakan = this.sehatMaksimal();
+      this._hidup = false;
+      this._totalKerusakan = this.sehatMaksimal();
     }
 
     this.info();
   }
 
   void info() {
-    print('Jagoan\t\t\t: ${this.nama}');
-    print('Derajat\t\t\t: ${this.derajat}');
-    print('Kesehatan Dasar\t\t: ${this.kesehatanDasar}');
-    print('Kekuatan Dasar\t\t: ${this.kekuatanDasar}');
+    print('Jagoan\t\t\t: ${this._nama}');
+    print('Derajat\t\t\t: ${this._derajat}');
+    print('Kesehatan Dasar\t\t: ${this._kesehatanDasar}');
+    print('Kekuatan Dasar\t\t: ${this._kekuatanDasar}');
     print('Kesehatan\t\t: ${this.getNilaiKesehatan()}/${this.sehatMaksimal()}');
     print('Kekuatan Maksimal\t: ${this.getKekuatanSerangJagoan()}');
-    print('Masih hidup?\t\t: ${this.hidup}\n');
+    print('Masih hidup?\t\t: ${this._hidup}\n');
   }
 
   void getNamaJubah() {

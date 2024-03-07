@@ -1,23 +1,23 @@
 class Jubah {
-  String nama;
-  int kekuatan;
-  int kesehatan;
+  String _nama;
+  int _kekuatan;
+  int _kesehatan;
 
   Jubah(
-    this.nama,
-    this.kekuatan,
-    this.kesehatan,
+    this._nama,
+    this._kekuatan,
+    this._kesehatan,
   );
 
   String getNama() {
-    return this.nama;
+    return this._nama;
   }
 
   int getTambahKesehatan() {
-    return this.kesehatan * 10;
+    return this._kesehatan * 10;
   }
 
   int getNilaiKekuatan() {
-    return this.kekuatan * 2;
+    return this._kekuatan * 2;
   }
 }
