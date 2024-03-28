@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
             children: [
               const Countdown(),
               const Mission(),
+              ImageSection(image: 'assets/donatenow.jpg')
             ],
           ),
         ),
@@ -165,9 +166,9 @@ class ImageSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       image,
-      width: 600,
-      height: 240,
-      fit: BoxFit.cover,
+      width: 350,
+      height: 175,
+      fit: BoxFit.fill,
     );
   }
 }
