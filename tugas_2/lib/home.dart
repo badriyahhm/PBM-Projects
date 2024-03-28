@@ -225,14 +225,14 @@ class LatestEvent extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          OtherPage(),
+          Events(),
         ],
       ),
     );
   }
 }
 
-class OtherPage extends StatelessWidget {
+class Events extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
