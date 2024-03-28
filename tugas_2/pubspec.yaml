@@ -14,6 +14,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.6
+  image_card: ^0.0.4
+  
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +31,6 @@ flutter:
   - assets/concert1.jpg
   - assets/donatenow.jpg
   - assets/impact.png
-  - assets/avalanche.png
+  - assets/avalanche.jpg
   - assets/tornado.png
   - assets/volcano.png
