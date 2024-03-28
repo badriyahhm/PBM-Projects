@@ -63,6 +63,9 @@ flutter:
   - assets/concert1.jpg
   - assets/donatenow.jpg
   - assets/impact.png
+  - assets/avalanche.png
+  - assets/tornado.png
+  - assets/volcano.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

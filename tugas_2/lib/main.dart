@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
             children: [
               const Countdown(),
               const Mission(),
-              ImageSection(image: 'assets/donatenow.jpg')
+              ImageSection(image: 'assets/donatenow.jpg'),
+              Impact(image: 'assets/impact.png'),
+              LatestEvent(),
             ],
           ),
         ),
@@ -169,6 +171,69 @@ class ImageSection extends StatelessWidget {
       width: 350,
       height: 175,
       fit: BoxFit.fill,
+    );
+  }
+}
+
+class Impact extends StatelessWidget {
+  const Impact({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(25),
+      child: Column(
+        children: [
+          Text(
+            'with your help we\'ve been able to',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF0060AF),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Image.asset(
+            image,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LatestEvent extends StatelessWidget {
+  const LatestEvent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Text(
+            'Latest Event',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF0060AF),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            child: Row(
+              children: [
+                Container(),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
