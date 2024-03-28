@@ -212,6 +212,7 @@ class LatestEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
       child: Column(
         children: [
           Text(
@@ -222,13 +223,30 @@ class LatestEvent extends StatelessWidget {
               color: Color(0xFF0060AF),
             ),
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: 15,
           ),
           Container(
-            child: Row(
+            height: 150,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: [
-                Container(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/avalanche.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/tornado.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/volcano.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset('assets/avalanche.png'),
+                ),
               ],
             ),
           )
