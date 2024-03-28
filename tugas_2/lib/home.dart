@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_card/image_card.dart';
 
 class home extends StatelessWidget {
   const home({Key? key}) : super(key: key);
@@ -224,32 +225,69 @@ class LatestEvent extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          Container(
-            height: 150,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset('assets/avalanche.png'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset('assets/tornado.png'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset('assets/volcano.png'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.asset('assets/avalanche.png'),
-                ),
-              ],
-            ),
-          )
+          OtherPage(),
         ],
       ),
     );
   }
+}
+
+class OtherPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          card(
+            image: 'assets/volcano.png',
+            text: 'Volcano Clean Up Volunteer Day',
+          ),
+          card(
+            image: 'assets/tornado.png',
+            text: 'Tornado Shelter Support Fund',
+          ),
+          card(
+            image: 'assets/avalanche.jpg',
+            text: 'Avalanche Aftermath Fund',
+          ),
+          card(
+            image: 'assets/volcano.png',
+            text: 'Volcano Clean Up Volunteer Day',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Widget card({required String image, required String text}) {
+  return Container(
+    margin: EdgeInsets.symmetric(horizontal: 12),
+    child: FillImageCard(
+      width: 120,
+      heightImage: 80,
+      color: Color(0xFF759ACC),
+      imageProvider: AssetImage(image),
+      description: title(text: text),
+    ),
+  );
+}
+
+Widget title({required String text}) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 10),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          text,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+              fontSize: 11, fontWeight: FontWeight.w600, color: Colors.white),
+        ),
+      ],
+    ),
+  );
 }
