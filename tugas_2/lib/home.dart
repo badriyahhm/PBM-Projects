@@ -12,7 +12,7 @@ class home extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const Countdown(),
+              const HeroSection(),
               const Mission(),
               ImageSection(image: 'assets/donatenow.jpg'),
               Impact(),
@@ -25,8 +25,8 @@ class home extends StatelessWidget {
   }
 }
 
-class Countdown extends StatelessWidget {
-  const Countdown({super.key});
+class HeroSection extends StatelessWidget {
+  const HeroSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -265,6 +265,7 @@ class LatestEvent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
       child: Column(
         children: [
