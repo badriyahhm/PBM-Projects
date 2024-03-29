@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
+import 'package:tugas_2/booking.dart';
 
 class home extends StatelessWidget {
   const home({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class home extends StatelessWidget {
               const Countdown(),
               const Mission(),
               ImageSection(image: 'assets/donatenow.jpg'),
-              Impact(image: 'assets/impact.png'),
+              Impact(),
               LatestEvent(),
             ],
           ),
@@ -49,24 +50,6 @@ class Countdown extends StatelessWidget {
                 color: Color(0xFFAEBFCE),
               ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildCountdownItem('04', 'days'),
-              const SizedBox(
-                width: 25,
-              ),
-              _buildCountdownItem('23', 'hours'),
-              const SizedBox(
-                width: 25,
-              ),
-              _buildCountdownItem('16', 'minutes'),
-              const SizedBox(
-                width: 25,
-              ),
-              _buildCountdownItem('23', 'seconds'),
-            ],
           ),
           const SizedBox(height: 20),
           TextButton(
@@ -175,17 +158,18 @@ class ImageSection extends StatelessWidget {
 }
 
 class Impact extends StatelessWidget {
-  const Impact({super.key, required this.image});
-
-  final String image;
+  const Impact({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(25),
-      child: Column(
-        children: [
-          Text(
+    return Column(
+      children: [
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 5),
+          child: Text(
             'with your help we\'ve been able to',
             style: TextStyle(
               fontSize: 18,
@@ -193,11 +177,81 @@ class Impact extends StatelessWidget {
               color: Color(0xFF0060AF),
             ),
           ),
-          const SizedBox(
-            height: 30,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ImpactCard(
+              icon: Icons.diversity_1,
+              title: '100.000+',
+              subtitle: 'Lives Impacted',
+            ),
+            ImpactCard(
+              icon: Icons.real_estate_agent,
+              title: '2.500',
+              subtitle: 'Shelters Provided',
+            ),
+            ImpactCard(
+              icon: Icons.local_shipping,
+              title: '2 Millions',
+              subtitle: 'Meals Distributed',
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class ImpactCard extends StatelessWidget {
+  const ImpactCard(
+      {super.key,
+      required this.icon,
+      required this.title,
+      required this.subtitle});
+
+  final IconData icon;
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 15),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              color: Color(0xFF759ACC),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Icon(
+              icon,
+              size: 30,
+              color: Colors.white,
+            ),
           ),
-          Image.asset(
-            image,
+          Container(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF0060AF),
+              ),
+            ),
+          ),
+          Container(
+            child: Text(
+              subtitle,
+              style: TextStyle(
+                fontSize: 11,
+                color: Color(0xFF0060AF),
+              ),
+            ),
           ),
         ],
       ),
@@ -239,21 +293,45 @@ class Events extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          card(
+          EventCard(
             image: 'assets/volcano.png',
             text: 'Volcano Clean Up Volunteer Day',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => booking()),
+              );
+            },
           ),
-          card(
+          EventCard(
             image: 'assets/tornado.png',
             text: 'Tornado Shelter Support Fund',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => booking()),
+              );
+            },
           ),
-          card(
+          EventCard(
             image: 'assets/avalanche.jpg',
             text: 'Avalanche Aftermath Fund',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => booking()),
+              );
+            },
           ),
-          card(
+          EventCard(
             image: 'assets/volcano.png',
             text: 'Volcano Clean Up Volunteer Day',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => booking()),
+              );
+            },
           ),
         ],
       ),
@@ -261,17 +339,33 @@ class Events extends StatelessWidget {
   }
 }
 
-Widget card({required String image, required String text}) {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: 12),
-    child: FillImageCard(
-      width: 120,
-      heightImage: 80,
-      color: Color(0xFF759ACC),
-      imageProvider: AssetImage(image),
-      description: title(text: text),
-    ),
-  );
+class EventCard extends StatelessWidget {
+  final String image;
+  final String text;
+  final VoidCallback onTap;
+
+  const EventCard({
+    required this.image,
+    required this.text,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 12),
+        child: FillImageCard(
+          width: 120,
+          heightImage: 80,
+          color: Color(0xFF759ACC),
+          imageProvider: AssetImage(image),
+          description: title(text: text),
+        ),
+      ),
+    );
+  }
 }
 
 Widget title({required String text}) {
