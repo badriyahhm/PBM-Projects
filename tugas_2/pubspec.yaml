@@ -28,9 +28,4 @@ flutter:
   uses-material-design: true
 
   assets:
-  - assets/concert1.jpg
-  - assets/donatenow.jpg
-  - assets/impact.png
-  - assets/avalanche.jpg
-  - assets/tornado.png
-  - assets/volcano.png
+  - assets/

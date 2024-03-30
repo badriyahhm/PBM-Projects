@@ -63,7 +63,10 @@ class HeroSection extends StatelessWidget {
               backgroundColor:
                   MaterialStateProperty.all<Color>(const Color(0xFF759ACC)),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => booking()));
+            },
             child: const Text(
               'Book Now',
               style: TextStyle(
