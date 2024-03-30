@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
 import 'package:tugas_2/booking.dart';
+import 'package:tugas_2/volcanopage.dart';
 
 class home extends StatelessWidget {
   const home({Key? key}) : super(key: key);
@@ -300,42 +301,18 @@ class Events extends StatelessWidget {
           EventCard(
             image: 'assets/volcano.png',
             text: 'Volcano Clean Up Volunteer Day',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => booking()),
-              );
-            },
           ),
           EventCard(
             image: 'assets/tornado.png',
             text: 'Tornado Shelter Support Fund',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => booking()),
-              );
-            },
           ),
           EventCard(
             image: 'assets/avalanche.jpg',
             text: 'Avalanche Aftermath Fund',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => booking()),
-              );
-            },
           ),
           EventCard(
             image: 'assets/volcano.png',
             text: 'Volcano Clean Up Volunteer Day',
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => booking()),
-              );
-            },
           ),
         ],
       ),
@@ -346,27 +323,19 @@ class Events extends StatelessWidget {
 class EventCard extends StatelessWidget {
   final String image;
   final String text;
-  final VoidCallback onTap;
 
-  const EventCard({
-    required this.image,
-    required this.text,
-    required this.onTap,
-  });
+  const EventCard({required this.image, required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 12),
-        child: FillImageCard(
-          width: 120,
-          heightImage: 80,
-          color: Color(0xFF759ACC),
-          imageProvider: AssetImage(image),
-          description: title(text: text),
-        ),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 12),
+      child: FillImageCard(
+        width: 120,
+        heightImage: 80,
+        color: Color(0xFF759ACC),
+        imageProvider: AssetImage(image),
+        description: title(text: text),
       ),
     );
   }

@@ -7,27 +7,8 @@ class Ticket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => home()),
-            );
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [test()],
-        ),
-      ),
+      backgroundColor: Color(0xFFAEBFCE),
+      body: test(),
     );
   }
 }
@@ -37,8 +18,36 @@ class test extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Image.asset('assets/concert1.jpg'),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset('assets/receipt.png'),
+        TextButton(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            minimumSize: MaterialStateProperty.all<Size>(const Size(315, 40)),
+            backgroundColor:
+                MaterialStateProperty.all<Color>(const Color(0xFF4F6789)),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => home()),
+            );
+          },
+          child: const Text(
+            'Back to Home',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
