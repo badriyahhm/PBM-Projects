@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
 import 'package:tugas_2/booking.dart';
-import 'package:tugas_2/volcanopage.dart';
 
 class home extends StatelessWidget {
   const home({Key? key}) : super(key: key);
