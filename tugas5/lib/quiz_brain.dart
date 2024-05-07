@@ -66,7 +66,6 @@ class QuizBrain {
     return _questionBank[_questionNumber].questionAnswer;
   }
 
-  //TODO: Step 3 Part A - create isFinished method that checks the last questions.
   bool isFinished() {
     if (_questionNumber >= _questionBank.length - 1) {
       print('returning true');
@@ -76,12 +75,10 @@ class QuizBrain {
     }
   }
 
-  //TODO: Menghitung jumlah pertanyaan
   int getTotalQuestions() {
     return _questionBank.length;
   }
 
-  //TODO: Step 4 Part B - Create a reset() method that sets the questionNumber back to 0
   void reset() {
     _questionNumber = 0;
   }

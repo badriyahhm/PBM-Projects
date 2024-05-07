@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-// membuat object quizBrain
 QuizBrain quizBrain = QuizBrain();
 
 // main Method
@@ -45,24 +44,15 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  // array/list untuk menyimpan score, berupa Icon check or close.
   List<Icon> scoreKeeper = [];
-
-  // menghitung jawaban benar dan salah
   int numCorrect = 0;
   int numIncorrect = 0;
 
-  // fungsi mengecek jawaban dari user (parameter userPickedAnswer)
-  // ke jawaban dari daftar pertanyaan (list questions/_questionBanks)
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = quizBrain.getCorrectAnswer();
 
-    // setState
     setState(() {
-      //TODO: Step 4 - menggunakan IF/ELSE untuk cek akhir quiz
-      //jika ia, maka ke line berikuntya
       if (quizBrain.isFinished() == true) {
-        //TODO Step 4 Part A - menampilkan alert menggunakan rFlutter_alert
         Alert(
           context: context,
           title: 'Finished',
@@ -76,20 +66,17 @@ class _QuizPageState extends State<QuizPage> {
         numCorrect = 0;
         numIncorrect = 0;
         scoreKeeper = [];
-      }
-
-      //TODO: Step 6 - if not reached the end, ELSE do the answer checking
-      else {
+      } else {
         if (userPickedAnswer == correctAnswer) {
           scoreKeeper.add(const Icon(
-            Icons.check,
-            color: Colors.green,
+            Icons.check_circle_outline,
+            color: Color(0xff8db3ef),
           ));
           numCorrect++;
         } else {
           scoreKeeper.add(const Icon(
-            Icons.close,
-            color: Colors.red,
+            Icons.highlight_off,
+            color: Color(0XFFf47256),
           ));
           numIncorrect++;
         }
@@ -106,8 +93,7 @@ class _QuizPageState extends State<QuizPage> {
       children: <Widget>[
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 10.0), // Adjust horizontal padding
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Center(
               child: Text(quizBrain.getQuestionText(),
                   textAlign: TextAlign.center,
