@@ -14,7 +14,7 @@ class _OrangtuaScreenState extends State<OrangtuaScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
   }
 
   @override
@@ -111,9 +111,11 @@ class _OrangtuaScreenState extends State<OrangtuaScreen>
 
             TabBar(
               controller: _tabController,
+              isScrollable: true,
               tabs: [
                 Tab(text: 'Meals'),
                 Tab(text: 'Toilet'),
+                Tab(text: 'Rest'),
                 Tab(text: 'Bottle'),
                 Tab(text: 'Other'),
                 Tab(text: 'Notes for Parents'),
@@ -131,59 +133,159 @@ class _OrangtuaScreenState extends State<OrangtuaScreen>
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MealItem(
+                        CardItem(
                           imagePath: 'images/breakfast.png',
-                          mealName: 'Breakfast',
-                          mealDescription: '-',
-                          quantity: 'None',
+                          Title: 'Breakfast',
+                          text1: '-',
+                          text2: 'None',
                         ),
-                        MealItem(
+                        CardItem(
                           imagePath: 'images/snack.png',
-                          mealName: 'Snack',
-                          mealDescription: 'Pisang dan susu',
-                          quantity: 'Lots',
+                          Title: 'Snack',
+                          text1: 'Pisang dan susu',
+                          text2: 'Lots',
                         ),
-                        MealItem(
+                        CardItem(
                           imagePath: 'images/lunch.png',
-                          mealName: 'Lunch',
-                          mealDescription:
-                              'Nasi, bola-bola tahu, dan telur rebus',
-                          quantity: 'Some',
+                          Title: 'Lunch',
+                          text1: 'Nasi, bola-bola tahu, dan telur rebus',
+                          text2: 'Some',
                         ),
-                        MealItem(
+                        CardItem(
                           imagePath: 'images/dinner.png',
-                          mealName: 'Dinner',
-                          mealDescription: 'Nasi dan pempek',
-                          quantity: 'Lots',
+                          Title: 'Dinner',
+                          text1: 'Nasi dan pempek',
+                          text2: 'Lots',
                         ),
-                        MealItem(
+                        CardItem(
                           imagePath: 'images/drink.png',
-                          mealName: 'Fluids',
-                          mealDescription: 'Air putih dan susu',
-                          quantity: 'Lots',
+                          Title: 'Fluids',
+                          text1: 'Air putih dan susu',
+                          text2: 'Lots',
                         ),
                       ],
                     ),
                   ),
                   // Toilet Section
-                  Padding(
+                  SingleChildScrollView(
                     padding: const EdgeInsets.all(16.0),
-                    child: Column(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CardItem(
+                          imagePath: 'images/diaper.png',
+                          Title: 'Diaper',
+                          text1: 'pukul 11.37',
+                          text2: 'Wet',
+                        ),
+                        CardItem(
+                          imagePath: 'images/diaper.png',
+                          Title: 'Diaper',
+                          text1: 'pukul 14.08',
+                          text2: 'Wet',
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Rest Section
+                  SingleChildScrollView(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CardItem(
+                          imagePath: 'images/sleep.png',
+                          Title: 'Rest',
+                          text1: 'start : 12.59',
+                          text2: 'end   : 13.57',
+                        ),
+                      ],
+                    ),
                   ),
                   // Bottle Section
-                  Padding(
+                  SingleChildScrollView(
                     padding: const EdgeInsets.all(16.0),
-                    child: Column(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CardItem(
+                          imagePath: 'images/milk.png',
+                          Title: 'Milk',
+                          text1: 'pukul 09.48',
+                          text2: '1 kotak',
+                        ),
+                        CardItem(
+                          imagePath: 'images/milk.png',
+                          Title: 'Milk',
+                          text1: 'pukul 12.08',
+                          text2: '1 kotak',
+                        ),
+                      ],
+                    ),
                   ),
                   // Other Section
-                  Padding(
+                  SingleChildScrollView(
                     padding: const EdgeInsets.all(16.0),
-                    child: Column(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Text(
+                            'Shower',
+                            style: TextStyle(
+                                fontSize: 23, fontWeight: FontWeight.bold),
+                          ),
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                        ),
+                        CardItem(
+                          imagePath: 'images/sky.png',
+                          Title: 'Morning',
+                          text1: 'start : -',
+                          text2: ' ',
+                        ),
+                        CardItem(
+                          imagePath: 'images/day.png',
+                          Title: 'Afternoon',
+                          text1: 'start : 12.08',
+                          text2: ' ',
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          child: Text(
+                            'Vitamin',
+                            style: TextStyle(
+                                fontSize: 23, fontWeight: FontWeight.bold),
+                          ),
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                        ),
+                        CardItem(
+                          imagePath: 'images/vitamin.png',
+                          Title: 'Vitamin',
+                          text1: 'start : 12.08',
+                          text2: ' ',
+                        ),
+                      ],
+                    ),
                   ),
                   // Notes Section
-                  Padding(
+                  SingleChildScrollView(
                     padding: const EdgeInsets.all(16.0),
-                    child: Column(),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          child: Text(
+                            'Items I Need',
+                            style: TextStyle(
+                                fontSize: 23, fontWeight: FontWeight.bold),
+                          ),
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                        ),
+                        CheckBoxList(),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -195,17 +297,17 @@ class _OrangtuaScreenState extends State<OrangtuaScreen>
   }
 }
 
-class MealItem extends StatelessWidget {
+class CardItem extends StatelessWidget {
   final String imagePath;
-  final String mealName;
-  final String mealDescription;
-  final String quantity;
+  final String Title;
+  final String text1;
+  final String text2;
 
-  const MealItem({
+  const CardItem({
     required this.imagePath,
-    required this.mealName,
-    required this.mealDescription,
-    required this.quantity,
+    required this.Title,
+    required this.text1,
+    required this.text2,
   });
 
   @override
@@ -230,17 +332,17 @@ class MealItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  mealName,
+                  Title,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 5),
                 Text(
-                  mealDescription,
+                  text1,
                   maxLines: null,
                   softWrap: true,
                 ),
                 Text(
-                  quantity,
+                  text2,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Color(0XFF2C55A4),
@@ -251,6 +353,51 @@ class MealItem extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class CheckBoxList extends StatefulWidget {
+  @override
+  _CheckBoxListState createState() => _CheckBoxListState();
+}
+
+class _CheckBoxListState extends State<CheckBoxList> {
+  List<String> items = [
+    'Diapers',
+    'Hand Towel',
+    'Cream',
+    'Clothes',
+    'Towel',
+    'Soap & Shampoo',
+    'Milk',
+    'Toothpaste'
+  ];
+
+  Map<String, bool> checkedItems = {};
+
+  @override
+  void initState() {
+    super.initState();
+    for (var item in items) {
+      checkedItems[item] = false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: items.map((item) {
+        return CheckboxListTile(
+          title: Text(item),
+          value: checkedItems[item],
+          onChanged: (bool? value) {
+            setState(() {
+              checkedItems[item] = value!;
+            });
+          },
+        );
+      }).toList(),
     );
   }
 }

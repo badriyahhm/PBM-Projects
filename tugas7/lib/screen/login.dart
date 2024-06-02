@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
         titleTextStyle: TextStyle(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
         centerTitle: true,
-        backgroundColor: const Color(0XFF5640CA),
+        backgroundColor: const Color(0XFF909FF9),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
