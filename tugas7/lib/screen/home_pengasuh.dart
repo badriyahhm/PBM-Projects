@@ -92,12 +92,15 @@ class _PengasuhScreenState extends State<PengasuhScreen> {
             SizedBox(height: 20),
             buildSectionTitle('Toilet', Icons.clean_hands),
             buildToiletSection(),
+            buildSectionTitle('Rest', Icons.bedtime),
+            buildRestSection(),
             SizedBox(height: 20),
             buildSectionTitle('Bottle', Icons.local_cafe),
             buildBottleSection(),
             SizedBox(height: 20),
             buildSectionTitle('Other', Icons.toys),
             buildOtherSection(),
+            SizedBox(height: 20),
             SizedBox(height: 20),
             buildSectionTitle('Notes for My Parents', Icons.inventory),
             buildNotesForParentsSection(),
@@ -332,6 +335,16 @@ class _PengasuhScreenState extends State<PengasuhScreen> {
           margin: EdgeInsets.symmetric(horizontal: 10),
         ),
         buildTextField('Vitamin', TextEditingController()),
+      ],
+    );
+  }
+
+  Widget buildRestSection() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        buildTimePicker('Start Time', TextEditingController(), context),
+        buildTimePicker('End Time', TextEditingController(), context),
       ],
     );
   }
