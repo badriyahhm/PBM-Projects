@@ -58,7 +58,7 @@ class _PengasuhScreenState extends State<PengasuhScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Caregiver Dashboard',
+          'Daily Report',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: Color(0XFF909FF9),
