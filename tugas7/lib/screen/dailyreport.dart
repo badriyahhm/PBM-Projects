@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:daycare/screen/login.dart';
+import 'package:daycare/models/dataanak.dart';
 
-class PengasuhScreen extends StatefulWidget {
+class DailyReportScreen extends StatefulWidget {
+  final DataAnak dataAnak;
+
+  DailyReportScreen({required this.dataAnak});
+
   @override
-  _PengasuhScreenState createState() => _PengasuhScreenState();
+  _DailyReportScreenState createState() => _DailyReportScreenState();
 }
 
-class _PengasuhScreenState extends State<PengasuhScreen> {
+class _DailyReportScreenState extends State<DailyReportScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
   final TextEditingController arrivalController = TextEditingController();

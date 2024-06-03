@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:daycare/screen/home_pengasuh.dart';
+import 'package:daycare/screen/dailyreport.dart';
 import 'package:daycare/screen/login.dart';
 
 class OrangtuaScreen extends StatefulWidget {

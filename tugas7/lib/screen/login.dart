@@ -1,6 +1,7 @@
+import 'package:daycare/screen/listanak.dart';
 import 'package:flutter/material.dart';
 import 'package:daycare/screen/home_orangtua.dart';
-import 'package:daycare/screen/home_pengasuh.dart';
+import 'package:daycare/screen/dailyreport.dart';
 import 'register.dart';
 import 'package:daycare/models/datapengasuh.dart';
 
@@ -21,7 +22,7 @@ class LoginScreen extends StatelessWidget {
       if (user['kode'] == 1) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => PengasuhScreen()),
+          MaterialPageRoute(builder: (context) => ListAnakScreen()),
         );
       } else if (user['kode'] == 2) {
         Navigator.pushReplacement(

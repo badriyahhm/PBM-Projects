@@ -1,7 +1,8 @@
+import 'package:daycare/screen/listanak.dart';
 import 'package:flutter/material.dart';
 import 'screen/login.dart';
 import 'package:daycare/screen/home_orangtua.dart';
-import 'package:daycare/screen/home_pengasuh.dart';
+import 'package:daycare/screen/dailyreport.dart';
 import 'models/datapengasuh.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: ListAnakScreen(),
     );
   }
 }
