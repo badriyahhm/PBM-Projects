@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:daycare/models/dataanak.dart';
 import 'package:daycare/screen/detail_anak.dart';
-import 'package:daycare/screen/login.dart'; // Import the login screen
+import 'package:daycare/screen/login.dart';
 
 class ListAnakScreen extends StatelessWidget {
   @override
@@ -27,7 +27,6 @@ class ListAnakScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Add the image above the list of children
           Image.asset(
             'images/mascots.png',
             fit: BoxFit.fitWidth,
@@ -37,11 +36,14 @@ class ListAnakScreen extends StatelessWidget {
               itemCount: childrenData.length,
               itemBuilder: (context, index) {
                 final child = childrenData[index];
+                Color backgroundColor = child.gender == 'Female'
+                    ? Color(0XFFFFE2DF)
+                    : Color(0XFFE2E6FF);
                 return Container(
                   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                   padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                   decoration: BoxDecoration(
-                    color: Color(0XFFFFE2DF),
+                    color: backgroundColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: ListTile(

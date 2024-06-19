@@ -50,15 +50,15 @@ class DetailAnakScreen extends StatelessWidget {
             '$label:',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             value,
             style: TextStyle(fontSize: 18),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
         ],
       ),
-      margin: EdgeInsets.symmetric(horizontal: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 15),
     );
   }
 
@@ -74,10 +74,10 @@ class DetailAnakScreen extends StatelessWidget {
           );
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0XFFFC7275),
-          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+          backgroundColor: const Color(0XFFFC7275),
+          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
         ),
-        child: Text(
+        child: const Text(
           'Buat Daily Report',
           style: TextStyle(color: Colors.white, fontSize: 16),
         ),

@@ -34,14 +34,14 @@ class _OrangtuaScreenState extends State<OrangtuaScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Parent Dashboard',
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Color(0XFF909FF9),
+        backgroundColor: const Color(0XFF909FF9),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.logout,
               color: Colors.white,
             ),
